@@ -428,16 +428,7 @@ section h2 {
   background: var(--gold);
   border-radius: 50%;
 }
-.qty-row { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
-.qty-row label { font-size: 13px; color: var(--ink-dim); }
-.qty-row select {
-  background: var(--bg);
-  color: var(--ink);
-  border: 1px solid var(--line);
-  padding: 8px 12px;
-  border-radius: 3px;
-  font-size: 14px;
-}
+.size-note { font-size: 13px; color: var(--ink-dim); margin: 0 0 20px; }
 .add-to-cart {
   display: inline-block;
   background: var(--gold);
