@@ -12,3 +12,35 @@ mainNav.querySelectorAll('a').forEach((link) => {
     navToggle.setAttribute('aria-expanded', 'false');
   });
 });
+
+const productTrack = document.getElementById('productTrack');
+if (productTrack) {
+  const slides = Array.from(productTrack.children);
+  const total = slides.length;
+  let index = 0;
+  let timer;
+
+  function goTo(i) {
+    index = (i + total) % total;
+    productTrack.style.transform = `translateX(-${index * 100}%)`;
+  }
+
+  function next() { goTo(index + 1); }
+  function prev() { goTo(index - 1); }
+
+  function restartAutoplay() {
+    clearInterval(timer);
+    timer = setInterval(next, 4000);
+  }
+
+  document.getElementById('prodNext').addEventListener('click', () => {
+    next();
+    restartAutoplay();
+  });
+  document.getElementById('prodPrev').addEventListener('click', () => {
+    prev();
+    restartAutoplay();
+  });
+
+  restartAutoplay();
+}
