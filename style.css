@@ -182,6 +182,14 @@ ul { margin: 0; padding: 0; list-style: none; }
   white-space: nowrap;
   font-size: clamp(15px, 6.1vw, 58px);
 }
+.hero-fact {
+  max-width: 560px;
+  margin: 0 0 22px;
+  font-size: 16px;
+  line-height: 1.5;
+  color: rgba(245,243,238,0.88);
+  text-shadow: 0 1px 12px rgba(0,0,0,0.8);
+}
 .hero-link {
   display: inline-flex;
   align-items: center;
@@ -357,6 +365,36 @@ section h2 {
 .add-to-cart:hover { background: #e0b876; transform: translateY(-1px); }
 .fine-print { font-size: 12px; color: var(--ink-dim); margin-top: 18px; line-height: 1.5; }
 
+.product-facts {
+  margin-top: 40px;
+  padding: 28px clamp(20px, 3vw, 36px);
+  background: var(--bg-alt);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+}
+.product-facts h3 { font-size: 20px; margin-bottom: 18px; }
+.product-facts dl { margin: 0; }
+.product-facts dl > div {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 16px;
+  padding: 10px 0;
+  border-top: 1px solid var(--line);
+  font-size: 14px;
+}
+.product-facts dt { color: var(--ink-dim); }
+.product-facts dd { margin: 0; color: var(--ink); line-height: 1.5; }
+.product-facts a, .legal a { text-decoration: underline; text-underline-offset: 3px; }
+
+.fiction-label {
+  margin: 56px 0 0;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.fiction-label + .reviews { margin-top: 16px; }
+
 .reviews {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -401,6 +439,8 @@ section h2 {
 }
 .faq-list details[open] summary::after { content: "\2212"; }
 .faq-list p { color: var(--ink-dim); font-size: 15px; margin: 14px 0 0; line-height: 1.6; }
+.faq-buy { margin-top: 32px; }
+.faq-link { color: var(--gold); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; white-space: nowrap; }
 
 /* ---------- Footer ---------- */
 .site-footer {
@@ -418,6 +458,7 @@ section h2 {
 }
 
 @media (max-width: 720px) {
+  .product-facts dl > div { grid-template-columns: 1fr; gap: 2px; }
   .nav {
     position: fixed;
     top: 0; right: 0;
