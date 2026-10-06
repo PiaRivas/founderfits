@@ -13,34 +13,27 @@ mainNav.querySelectorAll('a').forEach((link) => {
   });
 });
 
-const productTrack = document.getElementById('productTrack');
-if (productTrack) {
-  const slides = Array.from(productTrack.children);
-  const total = slides.length;
+document.querySelectorAll('.product-media').forEach((media) => {
+  const track = media.querySelector('.product-track');
+  const arrows = media.querySelectorAll('.carousel-arrow');
+  if (!track || arrows.length < 2) return;
+
+  const total = track.children.length;
   let index = 0;
   let timer;
 
   function goTo(i) {
     index = (i + total) % total;
-    productTrack.style.transform = `translateX(-${index * 100}%)`;
+    track.style.transform = `translateX(-${index * 100}%)`;
   }
-
-  function next() { goTo(index + 1); }
-  function prev() { goTo(index - 1); }
 
   function restartAutoplay() {
     clearInterval(timer);
-    timer = setInterval(next, 4000);
+    timer = setInterval(() => goTo(index + 1), 4000);
   }
 
-  document.getElementById('prodNext').addEventListener('click', () => {
-    next();
-    restartAutoplay();
-  });
-  document.getElementById('prodPrev').addEventListener('click', () => {
-    prev();
-    restartAutoplay();
-  });
+  arrows[0].addEventListener('click', () => { goTo(index - 1); restartAutoplay(); });
+  arrows[1].addEventListener('click', () => { goTo(index + 1); restartAutoplay(); });
 
   restartAutoplay();
-}
+});
